@@ -264,4 +264,7 @@ su
 
 これらをdoファイルの冒頭で設定するような様式になっています。githubサイトにアップロードしています。
 
+# 時間が余ったとき…
+[なぜプログラミングが必要なのか？](https://github.com/sankyoh/Stata_Lecture2022/blob/main/Lecture_01_introduction.md#%E3%81%AA%E3%81%9C%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B)
+
 
