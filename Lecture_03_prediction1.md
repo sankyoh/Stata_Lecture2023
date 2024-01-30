@@ -70,7 +70,7 @@ su bw* resi*
 
 $$RMSE = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y_i})^2}$$
 
-$$RMPSE = \sqrt{\frac{1}{n}\sum_{i=1}^{n}\frac{(y_i - \hat{y_i})^2}{y_i}}$$
+$$RMSPE = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(\frac{y_i - \hat{y_i}}{y_i})^2}$$
 
 これらの値を計算して、予測モデルの性能が良いのかどうか検証します。
 
@@ -120,7 +120,7 @@ vl set
 ```
 ![image](https://github.com/sankyoh/Stata_Lecture2023/assets/67684585/6306b439-20ed-41cb-b307-dfb5f03376ab)
 
-このコマンドによって、全部で27個ある変数のうち、カテゴリー変数`$vlcategorical'、連続変数`$vlcontinuous`、判断保留`$vluncertain`、その他`$vlother`の4つに振り分けられます。
+このコマンドによって、全部で27個ある変数のうち、カテゴリー変数`$vlcategorical`、連続変数`$vlcontinuous`、判断保留`$vluncertain`、その他`$vlother`の4つに振り分けられます。
 
 今回は、カテゴリー変数14個、連続変数6個、判断保留7個、その他なし、という分類になりました。
 
@@ -240,6 +240,20 @@ di `rmspe'
 RMSEは573.2gから498.2gに改善し、RMSPEは0.418から0.300に改善しました。つまり、予測変数を3個から273個に増やす事によって予測能力は改善しました。
 
 しかし、これで良いでしょうか…？
+
+キャリブレーションプロットでも確認してみます。
+```
+twoway ///
+  (scatter bw_pred_reg2 bweight , mcolor(blue%15)) ///
+  (scatter bw_pred_reg1 bweight , mcolor(cranberry%15)) ///
+  (function y=x, range(0 5000) lcolor(navy)), ///
+  legend(label(1 "273vars") label(2 "3vars") label(3 "y=x"))
+```
+
+![Graph](https://github.com/sankyoh/Stata_Lecture2023/assets/67684585/8894e771-8ad7-492a-99f8-df359be9ce64)
+
+横軸が観察値で縦軸が予測値です。赤いプロットが最初の予測によるプロットですが、かなり駄目なのがわかります。一方で、青いプロットが今行った273個の変数を用いたプロットです。改善があるものの駄目な感じがわかります。
+
 
 # 次回
 このようなやり方が良く無い理由と多重共線性を気にしていない理由などを含めて、改善していきます。
