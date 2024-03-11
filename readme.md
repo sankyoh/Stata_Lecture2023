@@ -37,3 +37,7 @@ date("27Feb2024, "DMY")
 * S-learner
 * T-learner
 
+## Lecture 07. 予測モデルを用いた因果効果
+date("12Mar2024, "DMY")
+* X-learner
+
