@@ -114,6 +114,9 @@ $$ITE(X, T=1) = Y_{T=1} - M_0(X,T=1)$$
 
 Second Stage（ア）で、処置なし群と処置あり群の両方でITEを計算できました。図中では、CATE0とCATE1となっています。
 
+![image](https://github.com/sankyoh/Stata_Lecture2023/assets/67684585/eee1cc93-edde-4cfb-99a6-543bdbecf527)
+
+
 これを使って次の作業を行います。
 
 上側（処置なし群）から見ていきます。ここでは、処置なし群において、共変量Xを用いてITEを予測するモデルを作っています。この予測モデルをM_ITE0(X）とします。M_ITE0(X)は共変量Xを投入すると、処置がない場合におけるITEの予測値を返す関数です。
