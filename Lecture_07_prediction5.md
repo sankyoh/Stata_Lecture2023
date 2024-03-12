@@ -227,6 +227,8 @@ ITE0の平均値は約-240.7gで、ITE1の平均値は約-229.3gです。妊婦�
 
 次に、**Second Stage（イ）** に進みます。
 
+![image](https://github.com/sankyoh/Stata_Lecture2023/assets/67684585/157352ea-001d-4b15-ad9e-9cc9a8e03662)
+
 まずは、非曝露群データを用いて、予測変数Xを用いてITE0を予測するモデルを作ります。
 
 ここで突然の`replace ite0=0 if mbsmoke==1`があります。これは`rforestコマンド`の一種のバグへの対処です。
